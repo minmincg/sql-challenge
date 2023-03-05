@@ -1,6 +1,6 @@
 # sql-challenge
-For this assingment we got 6 different CSV files. We created an ERD to map out how we were going to connect each of the tables to be able to do queries to solve different questions. 
-CHALLENGE9_ERD.png
+For this assingment we got 6 different CSV files. We created an ERD to map out how we were going to connect each of the tables to be able to do queries to solve different questions.
+ ![Alt text](CHALLENGE9_ERD.png)
 After this we created a table schema to relate each of the tables to be able to query through all of them using primary keys and foreign keys as needed. 
 Then we imported the CSV files into their respective tables (created in the table schema).
 
