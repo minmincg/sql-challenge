@@ -24,6 +24,7 @@ INNER JOIN "Departments" d on d.dept_no=m.dept_no
 -----Q4
 -- queried complete table for reference
 -- SELECT * FROM "Dept_employee"
+-- we have employees that are working in 2 different departments.
 
 SELECT e.emp_no,e.first_name, e.last_name, de.dept_no ,d.dept_name
 FROM "Employees" e
