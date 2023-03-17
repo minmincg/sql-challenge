@@ -26,12 +26,18 @@ CREATE TABLE "Employees" (
 
 CREATE TABLE "Salaries" (
     "emp_no" INT   NOT NULL,
-    "salary" INT   NOT NULL
+    "salary" INT   NOT NULL,
+    CONSTRAINT "pk_Salaries" PRIMARY KEY (
+        "emp_no"
+     )
 );
 
 CREATE TABLE "Dept_employee" (
     "emp_no" INT   NOT NULL,
-    "dept_no" VARCHAR   NOT NULL
+    "dept_no" VARCHAR   NOT NULL,
+    CONSTRAINT "pk_Dept_employee" PRIMARY KEY (
+        "emp_no","dept_no"
+     )
 );
 
 CREATE TABLE "Titles" (
@@ -44,7 +50,10 @@ CREATE TABLE "Titles" (
 
 CREATE TABLE "Managers" (
     "dept_no" varchar   NOT NULL,
-    "emp_no" INT   NOT NULL
+    "emp_no" INT   NOT NULL,
+    CONSTRAINT "pk_Managers" PRIMARY KEY (
+        "emp_no"
+     )
 );
 
 ALTER TABLE "Employees" ADD CONSTRAINT "fk_Employees_emp_title_id" FOREIGN KEY("emp_title_id")
@@ -59,13 +68,9 @@ REFERENCES "Employees" ("emp_no");
 ALTER TABLE "Dept_employee" ADD CONSTRAINT "fk_Dept_employee_dept_no" FOREIGN KEY("dept_no")
 REFERENCES "Departments" ("dept_no");
 
-ALTER TABLE "Dept_employee" ADD CONSTRAINT "PK_Dept_employee_dept_no" PRIMARY KEY("dept_no","emp_no")
-;
-
 ALTER TABLE "Managers" ADD CONSTRAINT "fk_Managers_dept_no" FOREIGN KEY("dept_no")
 REFERENCES "Departments" ("dept_no");
 
 ALTER TABLE "Managers" ADD CONSTRAINT "fk_Managers_emp_no" FOREIGN KEY("emp_no")
 REFERENCES "Employees" ("emp_no");
 
-SELECT * FROM "Managers"
